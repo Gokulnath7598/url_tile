@@ -1,7 +1,8 @@
 name: url_tile
-description: A new Flutter package project.
+description: Flutter Tile for Image and PDF URL.
 version: 0.0.1
-homepage:
+author: Gokulnath<gocool7598@gmail.com>
+homepage: https://github.com/Gokulnath7598/url_tile
 
 environment:
   sdk: '>=2.18.4 <3.0.0'
