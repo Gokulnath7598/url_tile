@@ -143,12 +143,12 @@ class _URLTileState extends State<URLTile> {
                 ? () {
                     final imageProvider = Image.network(widget.url).image;
                     showImageViewer(
+                      context,
+                      imageProvider,
                       closeButtonColor: widget.imageViewCloseButtonColor,
                       backgroundColor: widget.imageViewBGColor,
                       swipeDismissible: widget.swipeDismissibleImage,
                       doubleTapZoomable: widget.doubleTapZoomableImage,
-                      context,
-                      imageProvider,
                     );
                   }
                 : () {},
