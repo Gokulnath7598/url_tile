@@ -8,3 +8,7 @@
 * Support added for Video url(mp4).
 * Basic card with file name.
 * Option for customizing card and preview AppBar.
+## [0.0.4] - 17/12/2022
+* Support added for multiple file extensions.
+* Supported Image formats (jpg,jpeg,png,gif,webp,bmp,wbmp,heic).
+* Supported Video formats (mp4,mov,mkv,flv,webm).
