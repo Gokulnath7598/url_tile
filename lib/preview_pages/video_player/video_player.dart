@@ -22,7 +22,6 @@ class VideoPlayerPage extends StatefulWidget {
 }
 
 class _VideoPlayerPageState extends State<VideoPlayerPage> {
-
   /// VideoPlayerController to get the aspect ratio of the video
   late VideoPlayerController _controller;
 

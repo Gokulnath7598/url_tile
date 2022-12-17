@@ -8,7 +8,6 @@ import 'audio_player_controller.dart';
 /// uses just_audio
 /// used audio_video_progress_bar for showing the progress bar of the audio
 class AudioPlayerPage extends StatefulWidget {
-
   ///video url
   final String url;
 

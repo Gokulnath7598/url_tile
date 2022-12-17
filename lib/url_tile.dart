@@ -64,6 +64,7 @@ class _URLTileState extends State<URLTile> {
   Widget build(BuildContext context) {
     /// to get extension from the url
     String extension = Utils.fileExtensionFromURL(url: widget.url);
+
     /// return widgets and onTap functions based on the file extension type
     return widget.url.contains('.pdf')
         ? InkWell(

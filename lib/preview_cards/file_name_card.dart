@@ -48,8 +48,7 @@ Widget fileNameCard({required String url, required String fileType}) {
                               .contains(fileType.toLowerCase()))
                       ? const Text(
                           'UnSupported url/extension',
-                          style: TextStyle(
-                              color: Colors.red, fontSize: 14),
+                          style: TextStyle(color: Colors.red, fontSize: 14),
                         )
                       : const SizedBox(height: 0),
                   Text(
