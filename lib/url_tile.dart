@@ -3,8 +3,9 @@ library url_tile;
 import 'package:easy_image_viewer/easy_image_viewer.dart';
 import 'package:flutter/material.dart';
 import 'package:url_tile/preview_cards/file_name_card.dart';
-import 'package:url_tile/preview_pages/pdf_viewer.dart';
-import 'package:url_tile/preview_pages/video_player.dart';
+import 'package:url_tile/preview_pages/audio_player/audio_player.dart';
+import 'package:url_tile/preview_pages/pdf_viewer/pdf_viewer.dart';
+import 'package:url_tile/preview_pages/video_player/video_player.dart';
 import 'package:url_tile/utils/utils.dart';
 
 class URLTile extends StatefulWidget {
@@ -104,32 +105,54 @@ class _URLTileState extends State<URLTile> {
                 child: widget.customTile ??
                     fileNameCard(url: widget.url, fileType: extension),
               )
-            : (Utils.supportedImageExtensions.contains(extension.toLowerCase()))
+            : (Utils.supportedAudioExtensions.contains(extension.toLowerCase()))
                 ? InkWell(
                     onTap: () {
-                      final imageProvider = Image.network(widget.url).image;
-                      showImageViewer(
+                      Navigator.push(
                         context,
-                        imageProvider,
-                        useSafeArea: true,
-                        swipeDismissible: widget.swipeDismissibleImage,
-                        doubleTapZoomable: widget.doubleTapZoomableImage,
+                        MaterialPageRoute(
+                          builder: (context) => AudioPlayerPage(
+                            url: widget.url,
+                            appBar: widget.previewAppBar ??
+                                AppBar(
+                                  backgroundColor: Colors.black,
+                                  title: const Text('Audio Player',
+                                      style: TextStyle(
+                                          fontFamily: 'SemiBold',
+                                          fontSize: 18)),
+                                ),
+                          ),
+                        ),
                       );
                     },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5.0),
-                      child: widget.customTile ??
-                          ClipRRect(
-                            borderRadius: widget.imageBorderRadius ??
-                                const BorderRadius.all(Radius.circular(12)),
-                            child: Image.network(
-                              widget.url,
-                              height: widget.imageHeight,
-                              width: widget.imageWidth,
-                              fit: widget.imageFit,
-                            ),
-                          ),
-                    ))
-                : fileNameCard(url: widget.url, fileType: '');
+                    child: fileNameCard(url: widget.url, fileType: extension))
+                : (Utils.supportedImageExtensions
+                        .contains(extension.toLowerCase()))
+                    ? InkWell(
+                        onTap: () {
+                          final imageProvider = Image.network(widget.url).image;
+                          showImageViewer(
+                            context,
+                            imageProvider,
+                            useSafeArea: true,
+                            swipeDismissible: widget.swipeDismissibleImage,
+                            doubleTapZoomable: widget.doubleTapZoomableImage,
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 5.0),
+                          child: widget.customTile ??
+                              ClipRRect(
+                                borderRadius: widget.imageBorderRadius ??
+                                    const BorderRadius.all(Radius.circular(12)),
+                                child: Image.network(
+                                  widget.url,
+                                  height: widget.imageHeight,
+                                  width: widget.imageWidth,
+                                  fit: widget.imageFit,
+                                ),
+                              ),
+                        ))
+                    : fileNameCard(url: widget.url, fileType: '');
   }
 }

@@ -18,9 +18,13 @@ Widget fileNameCard({required String url, required String fileType}) {
             Icon(
               fileType == 'pdf'
                   ? Icons.picture_as_pdf_sharp
-                  : (Utils.supportedVideoExtensions.contains(fileType.toLowerCase()))
-                      ? Icons.video_collection_sharp
-                      : Icons.image_not_supported_sharp,
+                  : (Utils.supportedAudioExtensions
+                          .contains(fileType.toLowerCase()))
+                      ? Icons.audio_file_sharp
+                      : (Utils.supportedVideoExtensions
+                              .contains(fileType.toLowerCase()))
+                          ? Icons.video_collection_sharp
+                          : Icons.image_not_supported_sharp,
               color: Colors.red,
               size: 40,
             ),

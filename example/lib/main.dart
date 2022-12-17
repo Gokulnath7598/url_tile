@@ -154,6 +154,28 @@ class MyHomePage extends StatelessWidget {
                 url: 'https://www.africau.edu/images/default/sample.pdf',
                 customTile: Text('PDF File', style: TextStyle(fontSize: 30),textAlign: TextAlign.center,),
               ),
+              // audio url
+              const Text('Package provided card for audio url'),
+              const Text('mp3', style: TextStyle(fontSize: 16),),
+              const URLTile(
+                url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+              ),
+               const Text('flac', style: TextStyle(fontSize: 16),),
+              const URLTile(
+                url: 'https://flutter-coe.s3.us-east-2.amazonaws.com/Luffys_Baka_Song_(getmp3.pro).flac',
+              ),
+               const Text('wav', style: TextStyle(fontSize: 16),),
+              const URLTile(
+                url: 'https://flutter-coe.s3.us-east-2.amazonaws.com/Luffys_Baka_Song_(getmp3.pro).wav',
+              ),
+               const Text('aac', style: TextStyle(fontSize: 16),),
+              const URLTile(
+                url: 'https://flutter-coe.s3.us-east-2.amazonaws.com/One_piece_Rumbar_Kaizoku_Binks_n_(getmp3.pro).aac',
+              ),
+               const Text('m4a', style: TextStyle(fontSize: 16),),
+              const URLTile(
+                url: 'https://flutter-coe.s3.us-east-2.amazonaws.com/One_piece_Rumbar_Kaizoku_Binks_n_(getmp3.pro).m4a',
+              ),
               // unsupported url
               const Text('Package provided card for unsupported url'),
               const URLTile(

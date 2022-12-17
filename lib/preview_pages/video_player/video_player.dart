@@ -69,8 +69,9 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
             child: FutureBuilder(
               future: _future,
               builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting)
+                if (snapshot.connectionState == ConnectionState.waiting) {
                   return buildPlaceholderImage();
+                }
                 return Center(
                   child: Chewie(
                     controller: _chewieController,

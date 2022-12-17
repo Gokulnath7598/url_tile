@@ -1,10 +1,10 @@
 class Utils {
   // extract the file name from url
-  static String fileNameFromURL({required String url, required String fileType}) {
-    if(fileType == ''){
+  static String fileNameFromURL(
+      {required String url, required String fileType}) {
+    if (fileType == '') {
       url = 'UnSupported File Type';
-    }
-    else{
+    } else {
       String temp = url.substring(url.lastIndexOf('/') + 1);
       url = temp.substring(0, temp.indexOf('.$fileType') + 4);
     }
@@ -36,5 +36,14 @@ class Utils {
     'mkv',
     'flv',
     'webm',
+  ];
+
+  // supported audio formats
+  static List<String> supportedAudioExtensions = [
+    'mp3',
+    'flac',
+    'wav',
+    'aac',
+    'm4a',
   ];
 }
