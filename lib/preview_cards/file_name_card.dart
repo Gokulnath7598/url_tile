@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-
 import '../utils/utils.dart';
 
+///fileNameCard
+///
+/// accepts the file url and extension
+/// Returns a Widget with file name and basic ICon based and file type
+/// Shows a broken icon for unsupported url/file extension with warning
 Widget fileNameCard({required String url, required String fileType}) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 5.0),
@@ -32,9 +36,27 @@ Widget fileNameCard({required String url, required String fileType}) {
               width: 20,
             ),
             Expanded(
-              child: Text(
-                Utils.fileNameFromURL(url: url, fileType: fileType),
-                style: const TextStyle(color: Colors.black, fontSize: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  (fileType != 'pdf' &&
+                          !Utils.supportedAudioExtensions
+                              .contains(fileType.toLowerCase()) &&
+                          !Utils.supportedVideoExtensions
+                              .contains(fileType.toLowerCase()) &&
+                          !Utils.supportedImageExtensions
+                              .contains(fileType.toLowerCase()))
+                      ? const Text(
+                          'UnSupported url/extension',
+                          style: TextStyle(
+                              color: Colors.red, fontSize: 14),
+                        )
+                      : SizedBox(height: 0),
+                  Text(
+                    Utils.fileNameFromURL(url: url),
+                    style: const TextStyle(color: Colors.black, fontSize: 16),
+                  ),
+                ],
               ),
             ),
           ],

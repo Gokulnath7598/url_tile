@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 
+///AudioPlayerController
+///
+/// all the audio player controls are handled here
 class AudioPlayerController {
   final progressNotifier = ValueNotifier<ProgressBarState>(
     ProgressBarState(
@@ -11,12 +14,15 @@ class AudioPlayerController {
   );
   final buttonNotifier = ValueNotifier<ButtonState>(ButtonState.paused);
 
+  ///audio player controller declaration
   late AudioPlayer _audioPlayer;
 
+  ///calling audio player controller initialization
   AudioPlayerController(String url) {
     _init(url);
   }
 
+  ///audio player controller initialization
   void _init(String url) async {
     _audioPlayer = AudioPlayer();
     await _audioPlayer.setUrl(url);
@@ -65,18 +71,22 @@ class AudioPlayerController {
     });
   }
 
+  ///play audio function
   void play() {
     _audioPlayer.play();
   }
 
+  ///pause audio function
   void pause() {
     _audioPlayer.pause();
   }
 
+  ///seek audio function
   void seek(Duration position) {
     _audioPlayer.seek(position);
   }
 
+  ///dispose audio controller
   void dispose() {
     _audioPlayer.dispose();
   }
@@ -89,9 +99,17 @@ class ProgressBarState {
     required this.total,
   });
 
+  ///current playing minute of the video
   final Duration current;
+
+  ///minute of the video until which it's loaded
   final Duration buffered;
+
+  /// total length of the video
   final Duration total;
 }
 
+///enum
+///
+/// enum to indicate current status (paused, playing, loading)
 enum ButtonState { paused, playing, loading }

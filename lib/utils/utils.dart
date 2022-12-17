@@ -1,23 +1,27 @@
 class Utils {
-  // extract the file name from url
-  static String fileNameFromURL(
-      {required String url, required String fileType}) {
-    if (fileType == '') {
-      url = 'UnSupported File Type';
-    } else {
-      String temp = url.substring(url.lastIndexOf('/') + 1);
-      url = temp.substring(0, temp.indexOf('.$fileType') + 4);
-    }
+  ///url functions
+  ///
+  /// accepts file url
+  /// extract the file name from url
+  /// split the url find the last/ and extract the file name from there
+  static String fileNameFromURL({required String url}) {
+    String temp = url.substring(url.lastIndexOf('/') + 1);
+    url = temp;
     return url;
   }
 
-  // extract the file name from url
+  /// extract the file extension from url
+  ///
+  /// accepts file url
+  /// split the url and find the last . and extract the extension from there
   static String fileExtensionFromURL({required String url}) {
     String extension = url.split(".").last;
     return extension;
   }
 
-  // supported image formats
+  ///supported extensions
+  ///
+  /// supported image formats
   static List<String> supportedImageExtensions = [
     'jpg',
     'jpeg',
@@ -29,7 +33,7 @@ class Utils {
     'heic',
   ];
 
-  // supported video formats
+  /// supported video formats
   static List<String> supportedVideoExtensions = [
     'mp4',
     'mov',
@@ -38,7 +42,7 @@ class Utils {
     'webm',
   ];
 
-  // supported audio formats
+  /// supported audio formats
   static List<String> supportedAudioExtensions = [
     'mp3',
     'flac',

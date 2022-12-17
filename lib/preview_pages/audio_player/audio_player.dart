@@ -2,8 +2,17 @@ import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'audio_player_controller.dart';
 
+///VideoPlayerPage
+///
+/// accepts url and appBar for the page
+/// uses just_audio
+/// used audio_video_progress_bar for showing the progress bar of the audio
 class AudioPlayerPage extends StatefulWidget {
+
+  ///video url
   final String url;
+
+  ///appBar for the page
   final AppBar appBar;
 
   const AudioPlayerPage({Key? key, required this.url, required this.appBar})
@@ -16,18 +25,24 @@ class AudioPlayerPage extends StatefulWidget {
 class _AudioPlayerPageState extends State<AudioPlayerPage> {
   late final AudioPlayerController _audioPlayerController;
 
+  ///audio player controller being initialized
   @override
   void initState() {
     super.initState();
     _audioPlayerController = AudioPlayerController(widget.url);
   }
 
+  ///audio player controller disposed
   @override
   void dispose() {
     _audioPlayerController.dispose();
     super.dispose();
   }
 
+  ///audio controls
+  ///
+  /// different controls are being called
+  /// pause play loading and also have seek option for the audio
   @override
   Widget build(BuildContext context) {
     return Scaffold(

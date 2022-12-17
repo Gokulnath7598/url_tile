@@ -9,36 +9,37 @@ import 'package:url_tile/preview_pages/video_player/video_player.dart';
 import 'package:url_tile/utils/utils.dart';
 
 class URLTile extends StatefulWidget {
-  // accepts image & pdf urls
+  /// accepts image, audio, video & pdf urls
   final String url;
 
-  // Image
-  // image Tile properties
-  // image Tile height
+  /// Image
+  ///
+  /// image Tile properties
+  /// image Tile height
   final double? imageHeight;
 
-  // image Tile width
+  /// image Tile width
   final double? imageWidth;
 
-  // image Tile border radius {default 12}
+  /// image Tile border radius {default 12}
   final BorderRadius? imageBorderRadius;
 
-  // image Tile fit {default BoxFit.fill}
+  /// image Tile fit {default BoxFit.fill}
   final BoxFit? imageFit;
 
-  // image preview options
-  // dismiss image view on swipe {default false}
+  /// image preview options
+  /// dismiss image view on swipe {default false}
   final bool swipeDismissibleImage;
 
-  // zoom image on double tap {default true}
+  /// zoom image on double tap {default true}
   final bool doubleTapZoomableImage;
 
-  // PDF
+  /// PDF
 
-  // custom app bar for pdf view page & Video player page
+  /// custom app bar for pdf view page & Video player page
   final AppBar? previewAppBar;
 
-  // even with all this customization you can't achieve your view use you own custom widget
+  /// even with all this customization you can't achieve your view use you own custom widget
   final Widget? customTile;
 
   const URLTile(
@@ -61,14 +62,16 @@ class URLTile extends StatefulWidget {
 class _URLTileState extends State<URLTile> {
   @override
   Widget build(BuildContext context) {
+    /// to get extension from the url
     String extension = Utils.fileExtensionFromURL(url: widget.url);
+    /// return widgets and onTap functions based on the file extension type
     return widget.url.contains('.pdf')
         ? InkWell(
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => PDFViewerFromUrl(
+                  builder: (context) => PDFViewerPage(
                     url: widget.url,
                     appBar: widget.previewAppBar ??
                         AppBar(

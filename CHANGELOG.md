@@ -15,3 +15,5 @@
 ## [0.0.5] - 18/12/2022
 * Support added for audio file types.
 * Supported audio file formats (mp3,m4a,flac,wav,aac).
+## [0.0.6] - 18/12/2022
+* improvement in descriptions.

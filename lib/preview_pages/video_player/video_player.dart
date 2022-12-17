@@ -2,10 +2,19 @@ import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
+///VideoPlayerPage
+///
+/// accepts url and appBar for the page
+/// uses chewie player
+/// used VideoPlayerController to get the aspect ratio of the video and apply it to the video
 class VideoPlayerPage extends StatefulWidget {
   const VideoPlayerPage({Key? key, required this.url, required this.appBar})
       : super(key: key);
+
+  ///video url
   final String url;
+
+  ///appBar for the page
   final AppBar appBar;
 
   @override
@@ -13,10 +22,15 @@ class VideoPlayerPage extends StatefulWidget {
 }
 
 class _VideoPlayerPageState extends State<VideoPlayerPage> {
+
+  /// VideoPlayerController to get the aspect ratio of the video
   late VideoPlayerController _controller;
+
+  /// chewie video controller for pause, play and more options
   late ChewieController _chewieController;
   late Future<void> _future;
 
+  ///initially VideoPlayerController is initiated followed by  ChewieController initialization
   @override
   void initState() {
     super.initState();
@@ -24,6 +38,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
     _future = initVideoPlayer();
   }
 
+  /// videoControlers disposed
   @override
   void dispose() {
     _controller.dispose();
@@ -31,6 +46,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
     super.dispose();
   }
 
+  ///VideoPlayerController and ChewieController initialization
   Future<void> initVideoPlayer() async {
     await _controller.initialize();
     setState(() {
@@ -52,12 +68,17 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
     });
   }
 
+  ///loading during initialization of the controllers
   buildPlaceholderImage() {
     return const Center(
       child: CircularProgressIndicator(),
     );
   }
 
+  ///video controls
+  ///
+  /// different controls are being called
+  /// pause play loading seek full screen and also have option to speed and slow video
   @override
   Widget build(BuildContext context) {
     return Scaffold(

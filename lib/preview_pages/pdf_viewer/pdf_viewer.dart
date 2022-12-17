@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 
-class PDFViewerFromUrl extends StatelessWidget {
-  const PDFViewerFromUrl({Key? key, required this.url, required this.appBar})
+///PDFViewerPage
+///
+/// accepts url and appBar for the page
+/// uses flutter_cached_pdfview
+class PDFViewerPage extends StatelessWidget {
+  const PDFViewerPage({Key? key, required this.url, required this.appBar})
       : super(key: key);
 
-  final String? url;
+  ///video url
+  final String url;
+
+  ///appBar for the page
   final AppBar appBar;
 
   @override
@@ -13,7 +20,7 @@ class PDFViewerFromUrl extends StatelessWidget {
     return Scaffold(
       appBar: appBar,
       body: const PDF().fromUrl(
-        url!,
+        url,
         placeholder: (double progress) => Center(child: Text('$progress %')),
         errorWidget: (dynamic error) => Center(child: Text(error.toString())),
       ),
