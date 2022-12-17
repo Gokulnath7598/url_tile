@@ -51,7 +51,7 @@ Widget fileNameCard({required String url, required String fileType}) {
                           style: TextStyle(
                               color: Colors.red, fontSize: 14),
                         )
-                      : SizedBox(height: 0),
+                      : const SizedBox(height: 0),
                   Text(
                     Utils.fileNameFromURL(url: url),
                     style: const TextStyle(color: Colors.black, fontSize: 16),

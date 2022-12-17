@@ -3,7 +3,6 @@ description: A Flutter Package which provide custom and basic cards for differen
   These package accepts url and provide a card view and full file prview for the following file types Image, audio, video and pdf.
   The package is provide support for a variety of extensions image(jpg,jpeg,png,gif,webp,bmp,wbmp,heic), pdf, video(mp4,mov,mkv,flv,webm), audio(mp3,flac,wav,aac,m4a).
 version: 0.0.6
-author: Gokulnath<gocool7598@gmail.com>
 homepage: https://github.com/Gokulnath7598/url_tile
 
 environment:
