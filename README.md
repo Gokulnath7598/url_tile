@@ -1,7 +1,7 @@
 ## Features
 
-A URLTile Widget which accepts image(jpg,jpeg,png,gif,webp,bmp,wbmp,heic), pdf & video(mp4,mov,mkv,flv,webm) url with Image Preview option with zoom, Pdf Preview
-option and video player option.
+A URLTile Widget which accepts image(jpg,jpeg,png,gif,webp,bmp,wbmp,heic), pdf, video(mp4,mov,mkv,flv,webm), audio(mp3,flac,wav,aac,m4a) url with Image Preview option with zoom, Pdf Preview
+option and video and audio player option.
 
 ## Getting started
 

@@ -12,3 +12,6 @@
 * Support added for multiple file extensions.
 * Supported Image formats (jpg,jpeg,png,gif,webp,bmp,wbmp,heic).
 * Supported Video formats (mp4,mov,mkv,flv,webm).
+## [0.0.5] - 18/12/2022
+* Support added for audio file types.
+* Supported audio file formats (mp3,m4a,flac,wav,aac).
