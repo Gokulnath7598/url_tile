@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:url_tile/preview_cards/file_name_card.dart';
 import 'package:url_tile/preview_pages/pdf_viewer.dart';
 import 'package:url_tile/preview_pages/video_player.dart';
+import 'package:url_tile/utils/utils.dart';
 
 class URLTile extends StatefulWidget {
   // accepts image & pdf urls
@@ -59,6 +60,7 @@ class URLTile extends StatefulWidget {
 class _URLTileState extends State<URLTile> {
   @override
   Widget build(BuildContext context) {
+    String extension = Utils.fileExtensionFromURL(url: widget.url);
     return widget.url.contains('.pdf')
         ? InkWell(
             onTap: () {
@@ -80,7 +82,7 @@ class _URLTileState extends State<URLTile> {
             },
             child: widget.customTile ??
                 fileNameCard(url: widget.url, fileType: 'pdf'))
-        : widget.url.contains('.mp4')
+        : (Utils.supportedVideoExtensions.contains(extension.toLowerCase()))
             ? InkWell(
                 onTap: () {
                   Navigator.push(
@@ -100,11 +102,9 @@ class _URLTileState extends State<URLTile> {
                   );
                 },
                 child: widget.customTile ??
-                    fileNameCard(url: widget.url, fileType: 'mp4'),
+                    fileNameCard(url: widget.url, fileType: extension),
               )
-            : (widget.url.contains('.jpg') ||
-                    widget.url.contains('.jpeg') ||
-                    widget.url.contains('.png'))
+            : (Utils.supportedImageExtensions.contains(extension.toLowerCase()))
                 ? InkWell(
                     onTap: () {
                       final imageProvider = Image.network(widget.url).image;

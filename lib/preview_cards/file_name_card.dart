@@ -18,7 +18,7 @@ Widget fileNameCard({required String url, required String fileType}) {
             Icon(
               fileType == 'pdf'
                   ? Icons.picture_as_pdf_sharp
-                  : fileType == 'mp4'
+                  : (Utils.supportedVideoExtensions.contains(fileType.toLowerCase()))
                       ? Icons.video_collection_sharp
                       : Icons.image_not_supported_sharp,
               color: Colors.red,

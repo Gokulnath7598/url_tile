@@ -10,4 +10,31 @@ class Utils {
     }
     return url;
   }
+
+  // extract the file name from url
+  static String fileExtensionFromURL({required String url}) {
+    String extension = url.split(".").last;
+    return extension;
+  }
+
+  // supported image formats
+  static List<String> supportedImageExtensions = [
+    'jpg',
+    'jpeg',
+    'png',
+    'gif',
+    'webp',
+    'bmp',
+    'wbmp',
+    'heic',
+  ];
+
+  // supported video formats
+  static List<String> supportedVideoExtensions = [
+    'mp4',
+    'mov',
+    'mkv',
+    'flv',
+    'webm',
+  ];
 }
