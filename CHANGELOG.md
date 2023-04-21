@@ -20,5 +20,5 @@
 ## [0.0.7] - 18/12/2022
 * code formatted.
 * description updated.
-* ## [0.0.8] - 21/04/2023
+## [0.0.8] - 21/04/2023
 * Support up-to-date dependencies.
