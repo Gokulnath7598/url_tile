@@ -275,6 +275,12 @@ class MyHomePage extends StatelessWidget {
                 url:
                     'https://docs.google.com/document/d/1jryXhAXp35O4vtjv-vIPVNxu3t5UbgpcUMVEiiXwtWA/edit',
               ),
+               // apk
+              const Text('Package provided card for unsupported url'),
+              const URLTile(
+                url:
+                    'https://flutter-coe.s3.us-east-2.amazonaws.com/app-release.apk',
+              ),
             ],
           ),
         ));
