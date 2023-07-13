@@ -33,7 +33,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(widget.url);
+    _controller = VideoPlayerController.networkUrl(Uri.parse(widget.url));
     _future = initVideoPlayer();
   }
 

@@ -1,6 +1,6 @@
 name: url_tile
 description: These package accepts url and provide a basic card view and full file preview for the following file types Image, audio, video and pdf.
-version: 0.0.8
+version: 0.0.9
 homepage: https://github.com/Gokulnath7598/url_tile
 
 environment:
@@ -15,7 +15,7 @@ dependencies:
     sdk: flutter
   flutter_cached_pdfview: ^0.4.1
   just_audio: ^0.9.30
-  video_player: ^2.4.9
+  video_player: ^2.7.0
 
 dev_dependencies:
   flutter_test:

@@ -22,3 +22,5 @@
 * description updated.
 ## [0.0.8] - 21/04/2023
 * Support up-to-date dependencies.
+## [0.0.9] - 13/07/2023
+* README.md updated and deprecated functions removed.
